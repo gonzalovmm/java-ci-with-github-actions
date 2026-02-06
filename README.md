@@ -98,6 +98,6 @@ El foco estuvo puesto en la correcta implementación de:
 
 ## Autoría
 
-Trabajo práctico desarrollado en grupo para la materia  
+Trabajo práctico desarrollado en grupo para la materia 
 Ingeniería y Calidad de Software  
 UTN – Facultad Regional Mendoza
