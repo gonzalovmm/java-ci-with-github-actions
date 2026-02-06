@@ -1,69 +1,103 @@
-# TP4 Backlog - Integración Continua con GitHub Actions
+# TP4 Backlog – Integración Continua con GitHub Actions (Proyecto Académico)
+
+Trabajo práctico académico desarrollado para la materia **Ingeniería y Calidad de Software**  
+(Ingeniería en Sistemas – UTN Facultad Regional Mendoza).
+
+Este repositorio se publica con fines de **portfolio personal**, con el objetivo de mostrar la aplicación práctica de **Integración Continua (CI)**, testing automatizado y buenas prácticas de calidad de software.
 
 ---
 
-## Descripción del Proyecto
+## Descripción
 
-Este proyecto es un trabajo práctico para la materia que consiste en aplicar Integración Continua (CI) usando GitHub Actions sobre un proyecto Java con Gradle.
+El proyecto consiste en la implementación de un pipeline de **Integración Continua** utilizando **GitHub Actions** sobre un proyecto Java administrado con **Gradle**.
 
-Se desarrollaron dos clases principales:
+Cada cambio en el repositorio es validado automáticamente mediante:
+- compilación del proyecto,
+- ejecución de pruebas unitarias,
+- verificación de dependencias.
 
-- `Usuario`: con funcionalidades relacionadas a usuarios premium, validación de email y nombre.
-- `Pato`: con métodos que simulan comportamientos (nadar, volar, caminar) y propiedades como región, tamaño y migración.
+El objetivo principal es garantizar calidad, estabilidad y detección temprana de errores durante el desarrollo.
 
 ---
 
-## Pruebas Unitarias
+## Estructura del proyecto
 
-Se implementaron múltiples pruebas unitarias para garantizar la calidad del código:
+El sistema incluye dos clases principales utilizadas como base para el testing.
+
+### Usuario
+Implementa lógica relacionada a:
+- validación de email,
+- validación de nombre (formato correcto),
+- comportamiento de usuario premium,
+- métodos de acceso (getters y setters).
+
+### Pato
+Simula comportamientos y propiedades:
+- acciones (`walk`, `swim`, `fly`),
+- región,
+- tamaño válido,
+- migración,
+- formato de nombre para ficha descriptiva.
+
+---
+
+## Pruebas unitarias
+
+Se desarrollaron pruebas unitarias para validar el correcto funcionamiento del sistema.
 
 ### Tests de Usuario
-
-- Verificación de usuario premium para poder simular (`puedeSimular`).
-- Validación básica del email (`emailValido`).
-- Validación del nombre (primera letra mayúscula).
-- Setters y getters.
+- Validación de usuario premium.
+- Validación básica de email.
+- Validación de formato de nombre.
+- Verificación de setters y getters.
 
 ### Tests de Pato
-
-- Métodos `swim()`, `walk()`, `fly()` que retornan strings específicos.
-- Comprobación de región, tamaño en rango y migración.
-- Formato de nombre para ficha.
+- Validación de métodos de comportamiento.
+- Comprobación de región y migración.
+- Control de tamaño dentro de rangos válidos.
+- Verificación de formato de nombre.
 - Setters y getters.
 
+Las pruebas aseguran que los cambios no rompan funcionalidades existentes.
 
 ---
 
-## Integración Continua (CI) con GitHub Actions
+## Integración Continua con GitHub Actions
 
-Se configuró un pipeline en `.github/workflows/ci.yml` que:
+Se configuró un workflow de CI en `.github/workflows/ci.yml` que:
 
-- Se ejecuta automáticamente en cada push o pull request.
+- Se ejecuta automáticamente en cada push y pull request.
 - Configura JDK 17 (Temurin).
-- Usa Gradle con caching para optimizar tiempos.
-- Ejecuta `./gradlew build`, que compila el proyecto y corre los tests.
-- Envía el grafo de dependencias para alertas de seguridad (requiere habilitar el *Dependency graph* en la configuración del repositorio).
+- Utiliza Gradle con cacheo para optimizar tiempos de ejecución.
+- Ejecuta el comando `./gradlew build`, que compila el proyecto y ejecuta los tests unitarios.
+- Publica el grafo de dependencias para alertas de seguridad.
 
-Esto garantiza que cada cambio pase por un proceso automatizado que asegura la compilación correcta y la validación mediante pruebas.
-
----
-
-## Resultados
-
-- El pipeline de GitHub Actions corre sin errores y valida cada cambio.
-- Los tests unitarios se ejecutan correctamente, asegurando la estabilidad del código.
-- Se habilitó el grafo de dependencias para mantener la seguridad del proyecto.
+Este proceso garantiza que solo código validado pueda integrarse al proyecto.
 
 ---
 
-## Ventajas y Desventajas de GitHub Actions en proyectos
+## Tecnologías utilizadas
 
-| Ventajas                                       | Desventajas                                    |
-|------------------------------------------------|-----------------------------------------------|
-| Automatiza compilación y pruebas                | Requiere configuración inicial                |
-| Detecta errores antes de mergear                | Puede aumentar tiempo de ejecución             |
-| Mejora la calidad del código y colaboración     | Necesita aprendizaje para usuarios nuevos      |
-| Permite alertas de seguridad en dependencias    | Algunos jobs pueden consumir recursos          |
+- Java  
+- Gradle  
+- GitHub Actions  
+- JUnit  
+- Git / GitHub  
 
+---
 
+## Estado del proyecto
 
+Proyecto académico finalizado.  
+El foco estuvo puesto en la correcta implementación de:
+- testing automatizado,
+- Integración Continua,
+- buenas prácticas de calidad de software.
+
+---
+
+## Autoría
+
+Trabajo práctico desarrollado en grupo para la materia  
+Ingeniería y Calidad de Software  
+UTN – Facultad Regional Mendoza
